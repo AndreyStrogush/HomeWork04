@@ -1,7 +1,7 @@
 package com.homework;
 
 public interface MyList <E> {
-    void add(E e);
+    boolean add(E e);
 
     void remove(int index);
 

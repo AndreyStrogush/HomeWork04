@@ -2,14 +2,19 @@ package com.homework;
 
 public class Main {
     public static void main(String[] args) {
-      MyArrayList<Integer> test = new MyArrayList<>();
-//      test.add(4);
-//      test.add(6);
-//      test.add(99);
-//      test.add(33);
-//        System.out.println(test.get(1));
-//        test.set(1,66);
-//        System.out.println(test.get(1));
+        MyArrayList<Integer> test = new MyArrayList<>();
+        test.add(4);
+        test.add(6);
+        test.add(99);
+        test.add(33);
+        test.add(55);
+        System.out.println(test.get(1));
+        System.out.println(test.get(3));
+        test.remove(2);
+        System.out.println(test.get(3));
+        System.out.println(test.size());
+        test.clear();
+        System.out.println(test.get(0));
     }
 }
 
