@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Collection;
 import java.util.ListIterator;
 
-public class MyArrayList<T> implements List<T> {
+public class com.homework.MyArrayList<T> implements List<T> {
     private int size;
     transient Object[] elementData;     //for methods addAll, grow etc.
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
     private static final int DEFAULT_CAPACITY = 10;
     private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
 
-    public MyArrayList() {
+    public com.homework.MyArrayList() {
         this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
     }
 
