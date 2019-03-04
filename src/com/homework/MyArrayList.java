@@ -44,7 +44,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public E get(int index) {
-        return (E)elementData[index];
+        return (E) elementData[index];
     }
 
 }

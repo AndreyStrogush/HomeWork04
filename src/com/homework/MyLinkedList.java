@@ -29,7 +29,7 @@ public class MyLinkedList<E> implements MyList<E> {
     public void remove(int index) {
         checkElementIndex(index);
         Node<E> node = getNode(index);
-        if (node!= null) {
+        if (node != null) {
             remove(node);
         }
     }
@@ -84,13 +84,13 @@ public class MyLinkedList<E> implements MyList<E> {
     private Node<E> getNode(int index) {
         checkElementIndex(index);
         Node<E> target = firstNode;
-        for (int i = 0; i < index; i++ ){
+        for (int i = 0; i < index; i++) {
             target = target.next;
         }
         return target;
     }
 
-    private static class Node<E>{
+    private static class Node<E> {
         E item;
         Node<E> next;
         Node<E> prev;
@@ -107,12 +107,12 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     private String outOfBoundsMsg(int index) {
-        return "Index: "+index+", Size: "+size;
+        return "Index: " + index + ", Size: " + size;
     }
 
     private void checkElementIndex(int index) {
         if (!isElementIndex(index))
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
-    
+
 }
