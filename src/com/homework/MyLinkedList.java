@@ -14,13 +14,14 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public boolean add(E e) {
-        final Node<E> l = lastNode;
-        final Node<E> newNode = new Node<>(l, e, null);
+        final Node<E> last = lastNode;
+        final Node<E> newNode = new Node<>(last, e, null);
         lastNode = newNode;
-        if (l == null)
+        if (last == null) {
             firstNode = newNode;
-        else
-            l.next = newNode;
+        } else {
+            last.next = newNode;
+        }
         size++;
         return true;
     }
@@ -34,7 +35,7 @@ public class MyLinkedList<E> implements MyList<E> {
         }
     }
 
-    public void remove(Node<E> node) {
+    private void remove(Node<E> node) {
         final Node<E> next = node.next;
         final Node<E> prev = node.prev;
 

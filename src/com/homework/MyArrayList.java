@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MyArrayList<E> implements MyList<E> {
     private final int DEFAULT_CAPACITY = 10;
-    transient Object[] elementData;
+    private Object[] elementData;
     private int size;
 
     public MyArrayList() {
@@ -39,7 +39,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public int size() {
-        return elementData.length;
+        return size;
     }
 
     @Override

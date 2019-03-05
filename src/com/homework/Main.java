@@ -35,13 +35,13 @@ public class Main {
         System.out.println("Stack");
         testS.push(4);
         testS.push(6);
-        System.out.println(testS.pop());
         testS.push(99);
-        System.out.println(testS.peek());
+        System.out.println("size " + test.size());
+        System.out.println(testS.pop());
         testS.push(33);
         testS.push(55);
+        System.out.println("size " + test.size());
         System.out.println(testS.peek());
-        System.out.println("size" + test.size());
         testS.remove(2);
         System.out.println(testS.peek());
         testS.push(4);
@@ -50,9 +50,3 @@ public class Main {
 
     }
 }
-
-/*
-2.1 Реализовать ArrayList Написать свой класс com.homework.MyArrayList как аналог классу ArrayList.
- Можно использовать 1 массив для хранения данных.
-Реализовать следующие методы: add, remove, clear, size, get;
- */

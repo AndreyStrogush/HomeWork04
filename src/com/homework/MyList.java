@@ -11,5 +11,3 @@ public interface MyList <E> {
 
     E get(int index);
 }
-
-//add, remove, clear, size, get;

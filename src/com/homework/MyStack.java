@@ -5,8 +5,8 @@ import java.util.EmptyStackException;
 
 public class MyStack<E> implements MyStackInterface<E> {
     private final int DEFAULT_CAPACITY = 10;
-    transient Object[] elementData;
-    protected int elementCount;
+    private Object[] elementData;
+    private int elementCounter;
 
     public MyStack() {
         elementData = new Object[DEFAULT_CAPACITY];
@@ -14,47 +14,49 @@ public class MyStack<E> implements MyStackInterface<E> {
 
     @Override
     public E push(E item) {
-        if (elementCount == elementData.length)
-            elementData = Arrays.copyOf(elementData, elementCount + 1);
-        elementData[elementCount] = item;
-        elementCount = elementCount + 1;
+        if (elementCounter == elementData.length) {
+            elementData = Arrays.copyOf(elementData, elementCounter + 1);
+            elementData[elementCounter] = item;
+            elementCounter = elementCounter + 1;
+        }
         return item;
     }
 
     @Override
     public void remove(int index) {
-        if (index >= elementCount) {
+        if (index >= elementCounter) {
             throw new ArrayIndexOutOfBoundsException(index + " >= " +
-                    elementCount);
+                    elementCounter);
         } else if (index < 0) {
             throw new ArrayIndexOutOfBoundsException(index);
         }
-        int j = elementCount - index - 1;
+        int j = elementCounter - index - 1;
         if (j > 0) {
             System.arraycopy(elementData, index + 1, elementData, index, j);
         }
-        elementCount--;
-        elementData[elementCount] = null;
+        elementCounter--;
+        elementData[elementCounter] = null;
     }
 
     @Override
     public void clear() {
-        final Object[] es = elementData;
-        for (int to = elementCount, i = elementCount = 0; i < to; i++)
-            es[i] = null;
+        final Object[] elements = elementData;
+        for (int to = elementCounter, i = elementCounter = 0; i < to; i++)
+            elements[i] = null;
     }
 
     @Override
     public int size() {
-        return elementCount;
+        return elementCounter;
     }
 
     @Override
     public E peek() {
         int len = size();
 
-        if (len == 0)
+        if (len == 0) {
             throw new EmptyStackException();
+        }
         return elementAt(len - 1);
     }
 
@@ -70,32 +72,26 @@ public class MyStack<E> implements MyStackInterface<E> {
     }
 
     public void removeElementAt(int index) {
-        if (index >= elementCount) {
+        if (index >= elementCounter) {
             throw new ArrayIndexOutOfBoundsException(index + " >= " +
-                    elementCount);
+                    elementCounter);
         } else if (index < 0) {
             throw new ArrayIndexOutOfBoundsException(index);
         }
-        int j = elementCount - index - 1;
+        int j = elementCounter - index - 1;
         if (j > 0) {
             System.arraycopy(elementData, index + 1, elementData, index, j);
         }
-        elementCount--;
-        elementData[elementCount] = null;
+        elementCounter--;
+        elementData[elementCounter] = null;
     }
 
     public E elementAt(int index) {
-        if (index >= elementCount) {
-            throw new ArrayIndexOutOfBoundsException(index + " >= " + elementCount);
+        if (index >= elementCounter) {
+            throw new ArrayIndexOutOfBoundsException(index + " >= " + elementCounter);
         }
 
         return (E) elementData[index];
     }
 
 }
-
-/*
-2.4 Stack Написать свой класс MyStack как аналог классу Stack. LIFO (last-in-first-out).
-Можно делать либо с помощью Node либо с помощью массива.
- Реализовать методы: push, remove, clear, size, peek, pop;
- */
