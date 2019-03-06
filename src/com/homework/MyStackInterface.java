@@ -12,5 +12,4 @@ public interface MyStackInterface<E> {
     E peek();
 
     E pop();
-
 }
